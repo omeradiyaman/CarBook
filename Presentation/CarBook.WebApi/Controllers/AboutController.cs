@@ -47,13 +47,6 @@ namespace CarBook.WebApi.Controllers
             return Ok("Hakkımda Bilgisi Eklendi");
         }
 
-        //[HttpDelete]
-        //public async Task<IActionResult> DeleteAbout(int id)
-        //{
-        //    await _deleteAboutCommandHandler.Handle(new DeleteAboutCommand(id));
-        //    return Ok("Hakkımda Bilgisi Silindi");
-        //}
-
         [HttpDelete]
         public async Task<IActionResult> DeleteAbout(DeleteAboutCommand command)
         {
