@@ -20,13 +20,13 @@ namespace CarBook.Application.Features.CQRS.Handlers.AboutHandlers.Read
         }
         public async Task<GetAboutByIdQueryResult> Handle(GetAboutByIdQuery query)
         {
-            var values = await _repository.GetByIdAsync(query.Id);
+            var value = await _repository.GetByIdAsync(query.Id);
             return new GetAboutByIdQueryResult
             {
-                AboutId = values.AboutId,
-                Title = values.Title,
-                Description = values.Description,
-                ImageUrl = values.ImageUrl
+                AboutId = value.AboutId,
+                Title = value.Title,
+                Description = value.Description,
+                ImageUrl = value.ImageUrl
             };
         }
     }
