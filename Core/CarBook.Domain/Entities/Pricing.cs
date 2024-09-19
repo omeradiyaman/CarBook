@@ -10,7 +10,6 @@ namespace CarBook.Domain.Entities
     {
         public int PricingId { get; set; }
         public string Name { get; set; }
-        public int MyProperty { get; set; }
         public List<CarPricing> CarPricings { get; set; }
     }
 }
