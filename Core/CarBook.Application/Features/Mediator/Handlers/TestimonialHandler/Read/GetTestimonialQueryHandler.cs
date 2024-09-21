@@ -25,11 +25,11 @@ namespace CarBook.Application.Features.Mediator.Handlers.TestimonialHandler.Read
             var values = await _repository.GetAllAsync();
             return values.Select(x => new GetTestimonialQueryResult
             {
-                Comment = request.Comment,
-                ImageUrl = request.ImageUrl,
-                Name = request.Name,
-                TestimonialId = request.TestimonialId,
-                Tİtle = request.Tİtle
+                TestimonialId = x.TestimonialId,
+                Comment = x.Comment,
+                ImageUrl = x.ImageUrl,
+                Name = x.Name,
+                Tİtle = x.Tİtle
             }).ToList();
         }
     }
