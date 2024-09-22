@@ -10,10 +10,5 @@ namespace CarBook.Application.Features.Mediator.Queries.TestimonialQueries
 {
     public class GetTestimonialQuery : IRequest<List<GetTestimonialQueryResult>>
     {
-        public int TestimonialId { get; set; }
-        public string Name { get; set; }
-        public string Tİtle { get; set; }
-        public string Comment { get; set; }
-        public string ImageUrl { get; set; }
     }
 }

@@ -10,7 +10,5 @@ namespace CarBook.Application.Features.Mediator.Queries.FeatureQueries
 {
     public class GetFeatureQuery : IRequest<List<GetFeatureQueryResult>>
     {
-        public int FeatureId { get; set; }
-        public string Name { get; set; }
     }
 }

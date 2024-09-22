@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Queries.BlogQueries
 {
-    public class GetBlogQuery : IRequest<List<GetBlogQueryResult>>
+    public class GetLast3BlogsWithAuthorsQuery : IRequest<List<GetLast3BlogsWithAuthorsQueryResult>>
     {
+
     }
 }

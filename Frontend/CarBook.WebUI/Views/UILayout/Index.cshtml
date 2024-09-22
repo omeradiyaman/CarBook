@@ -4,12 +4,11 @@
 }
 <!DOCTYPE html>
 <html lang="en">
-@*BURAYA GIDER VE DEFAULT ADLI VIEW' I ARAR.*@
 @await Component.InvokeAsync("_HeadUILayoutComponentPartial")
 
 <body>
     @await Component.InvokeAsync("_NavbarUILayoutComponentPartial")
-    <!-- END nav -->
+
     @await Component.InvokeAsync("_MainCoverUILayoutComponentPartial")
 
     @RenderBody()
