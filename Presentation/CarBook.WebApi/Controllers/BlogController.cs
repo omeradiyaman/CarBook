@@ -33,19 +33,25 @@ namespace CarBook.WebApi.Controllers
         public async Task<IActionResult> CreateBlog(CreateBlogCommand command)
         {
             await _mediator.Send(command);
-            return Ok("Referans Bilgisi Eklendi.");
+            return Ok("Blog Bilgisi Eklendi.");
         }
         [HttpDelete]
         public async Task<IActionResult> DeleteBlog(DeleteBlogCommand command)
         {
             await _mediator.Send(command);
-            return Ok("Referans Bilgisi silindi.");
+            return Ok("Blog Bilgisi silindi.");
         }
         [HttpPut]
         public async Task<IActionResult> UpdateBlog(UpdateBlogCommand command)
         {
             await _mediator.Send(command);
-            return Ok("Referans Bilgisi Güncellendi.");
+            return Ok("Blog Bilgisi Güncellendi.");
+        }
+        [HttpGet("GetLast3BlogsWithAuthorsList")]
+        public async Task<IActionResult> GetLast3BlogsWithAuthorsList()
+        {
+            var values = await _mediator.Send(new GetLast3BlogsWithAuthorsQuery());
+            return Ok(values);
         }
     }
 }

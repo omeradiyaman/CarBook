@@ -32,19 +32,19 @@ namespace CarBook.WebApi.Controllers
         public async Task<IActionResult> CreateAuthor(CreateAuthorCommand command)
         {
             await _mediator.Send(command);
-            return Ok("Referans Bilgisi Eklendi.");
+            return Ok("Yazar Bilgisi Eklendi.");
         }
         [HttpDelete]
         public async Task<IActionResult> DeleteAuthor(DeleteAuthorCommand command)
         {
             await _mediator.Send(command);
-            return Ok("Referans Bilgisi silindi.");
+            return Ok("Yazar Bilgisi silindi.");
         }
         [HttpPut]
         public async Task<IActionResult> UpdateAuthor(UpdateAuthorCommand command)
         {
             await _mediator.Send(command);
-            return Ok("Referans Bilgisi Güncellendi.");
+            return Ok("Yazar Bilgisi Güncellendi.");
         }
     }
 }
