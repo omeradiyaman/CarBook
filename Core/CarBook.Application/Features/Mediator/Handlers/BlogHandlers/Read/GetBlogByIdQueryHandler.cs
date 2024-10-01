@@ -30,7 +30,8 @@ namespace CarBook.Application.Features.Mediator.Handlers.BlogHandlers.Read
                 CoverImageUrl = values.CoverImageUrl,
                 CreatedDate = values.CreatedDate,
                 AuthorId = values.AuthorId,
-                CategoryId = values.CategoryId
+                CategoryId = values.CategoryId,
+                Description = values.Description,
             };
         }
     }

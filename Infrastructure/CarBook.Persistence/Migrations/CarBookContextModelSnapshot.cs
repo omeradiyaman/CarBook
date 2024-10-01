@@ -22,6 +22,21 @@ namespace CarBook.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BlogTagCloud", b =>
+                {
+                    b.Property<int>("BlogsBlogId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagCloudsTagCloudId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BlogsBlogId", "TagCloudsTagCloudId");
+
+                    b.HasIndex("TagCloudsTagCloudId");
+
+                    b.ToTable("BlogTagCloud");
+                });
+
             modelBuilder.Entity("CarBook.Domain.Entities.About", b =>
                 {
                     b.Property<int>("AboutId")
@@ -121,6 +136,10 @@ namespace CarBook.Persistence.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -452,6 +471,26 @@ namespace CarBook.Persistence.Migrations
                     b.ToTable("SocialMedias");
                 });
 
+            modelBuilder.Entity("CarBook.Domain.Entities.TagCloud", b =>
+                {
+                    b.Property<int>("TagCloudId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TagCloudId"));
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TagCloudId");
+
+                    b.ToTable("TagClouds");
+                });
+
             modelBuilder.Entity("CarBook.Domain.Entities.Testimonial", b =>
                 {
                     b.Property<int>("TestimonialId")
@@ -479,6 +518,21 @@ namespace CarBook.Persistence.Migrations
                     b.HasKey("TestimonialId");
 
                     b.ToTable("Testimonials");
+                });
+
+            modelBuilder.Entity("BlogTagCloud", b =>
+                {
+                    b.HasOne("CarBook.Domain.Entities.Blog", null)
+                        .WithMany()
+                        .HasForeignKey("BlogsBlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarBook.Domain.Entities.TagCloud", null)
+                        .WithMany()
+                        .HasForeignKey("TagCloudsTagCloudId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Blog", b =>
