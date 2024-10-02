@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Handlers.BlogHandlers.Read
 {
-    public class GetAllBlogsWithAuthorQueryHandler : IRequestHandler<GetAllBlogsWithAuthorQuery, List<GetAllBlogsWithAuthorQueryResult>>
+    public class GetAllBlogsWithAuthorQueryHandler : IRequestHandler<GetAllBlogsWithAuthorsQuery, List<GetAllBlogsWithAuthorsQueryResult>>
     {
         private readonly IBlogRepository _repository;
 
@@ -21,10 +21,10 @@ namespace CarBook.Application.Features.Mediator.Handlers.BlogHandlers.Read
             _repository = repository;
         }
 
-        public async Task<List<GetAllBlogsWithAuthorQueryResult>> Handle(GetAllBlogsWithAuthorQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetAllBlogsWithAuthorsQueryResult>> Handle(GetAllBlogsWithAuthorsQuery request, CancellationToken cancellationToken)
         {
             var values = await _repository.GetAllBlogsWithAuthors();
-            return values.Select(x => new GetAllBlogsWithAuthorQueryResult
+            return values.Select(x => new GetAllBlogsWithAuthorsQueryResult
             {
                 AuthorId = x.AuthorId,
                 AuthorName = x.Author.Name,
@@ -33,6 +33,10 @@ namespace CarBook.Application.Features.Mediator.Handlers.BlogHandlers.Read
                 CoverImageUrl = x.CoverImageUrl,
                 CreatedDate = x.CreatedDate,
                 Title = x.Title,
+                Description = x.Description,
+                AuthorDescription  = x.Author.Description,
+                AuthorImageUrl = x.Author.ImageUrl,
+                
             }).ToList();
         }
     }

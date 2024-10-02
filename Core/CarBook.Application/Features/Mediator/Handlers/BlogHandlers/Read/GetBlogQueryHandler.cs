@@ -30,7 +30,8 @@ namespace CarBook.Application.Features.Mediator.Handlers.BlogHandlers.Read
                 CreatedDate = x.CreatedDate,
                 Title = x.Title,
                 CategoryId = x.CategoryId,
-                AuthorId = x.AuthorId
+                AuthorId = x.AuthorId,
+                Description = x.Description,
             }).ToList();
         }
     }
