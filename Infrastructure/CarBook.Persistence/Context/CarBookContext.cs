@@ -30,7 +30,6 @@ namespace CarBook.Persistence.Context
         //        .WithMany(f => f.CarFeatures)
         //        .HasForeignKey(cf => cf.CarId);
         //}
-
         public DbSet<About> Abouts { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<Brand> Brands { get; set; }
@@ -50,5 +49,6 @@ namespace CarBook.Persistence.Context
         public DbSet<Author> Authors { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<TagCloud> TagClouds { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }
