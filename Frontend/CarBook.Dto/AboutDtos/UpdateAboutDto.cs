@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarBook.Dto.AboutDtos
 {
-    public class ResultAboutDto
+    public class UpdateAboutDto
     {
         public int AboutId { get; set; }
         public string Title { get; set; }

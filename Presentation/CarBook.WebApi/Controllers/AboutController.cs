@@ -48,10 +48,10 @@ namespace CarBook.WebApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteAbout(DeleteAboutCommand command)
+        public async Task<IActionResult> DeleteAbout(int id)
         {
-            await _deleteAboutCommandHandler.Handle(command);
-            return Ok("Hakkımda Bilgisi new'lenmeden silinddi.");
+            await _deleteAboutCommandHandler.Handle(new DeleteAboutCommand(id));
+            return Ok("Hakkımda Bilgisi silinddi.");
         }
 
         [HttpPut]
