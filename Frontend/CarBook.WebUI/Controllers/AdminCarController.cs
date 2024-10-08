@@ -16,7 +16,7 @@ namespace CarBook.WebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
+    
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
@@ -36,12 +36,15 @@ namespace CarBook.WebUI.Controllers
             var responseMessage = await client.GetAsync("https://localhost:7263/api/Brand");
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<List<ResultBrandDto>>(jsonData);
+
+            //Query syntax, daha karmaşık olan işlemlerde kullan. Burada landa olanı kullanmak daha mantıklıdır. Ayrıca select işlemini karşıya atmak için Http.DropDownListFor yerine asp-for tag helperlarını kullandık çok daha sağlıklıdır.
             //List<SelectListItem> brandValues = (from x in values
             //                                    select new SelectListItem
             //                                    {
             //                                        Text = x.Name,
             //                                        Value = x.BrandId.ToString()
             //                                    }).ToList();
+
             List<SelectListItem> brandValues = values.Select(x => new SelectListItem
             {
                 Text = x.Name,
