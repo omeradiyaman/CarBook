@@ -23,8 +23,14 @@ namespace CarBook.WebApi.Controllers
             var values = await _mediator.Send(new GetCommentsQuery());
             return Ok(values);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> CommentList(int id)
+        {
+            var value = await _mediator.Send(new GetCommentByIdQuery(id));
+            return Ok(value);
+        }
         [HttpGet("GetCommentByBlogId")]
-        public async Task<IActionResult> GetCommentByBlogId(int id)
+        public async Task<IActionResult> GetCommentsByBlogId(int id)
         {
             var values = await _mediator.Send(new GetCommentsByBlogIdQuery(id));
             return Ok(values);

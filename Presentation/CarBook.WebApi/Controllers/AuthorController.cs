@@ -35,9 +35,9 @@ namespace CarBook.WebApi.Controllers
             return Ok("Yazar Bilgisi Eklendi.");
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleteAuthor(DeleteAuthorCommand command)
+        public async Task<IActionResult> DeleteAuthor(int id)
         {
-            await _mediator.Send(command);
+            await _mediator.Send(new DeleteAuthorCommand(id));
             return Ok("Yazar Bilgisi silindi.");
         }
         [HttpPut]

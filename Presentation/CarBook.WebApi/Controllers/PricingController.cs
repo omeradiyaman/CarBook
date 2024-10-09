@@ -8,11 +8,11 @@ namespace CarBook.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PrİcingController : ControllerBase
+    public class PricingController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public PrİcingController(IMediator mediator)
+        public PricingController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -36,9 +36,9 @@ namespace CarBook.WebApi.Controllers
             return Ok("Ücretlendirme Bilgisi Eklendi.");
         }
         [HttpDelete]
-        public async Task<IActionResult> DeletePricing(DeletePricingCommand command)
+        public async Task<IActionResult> DeletePricing(int id)
         {
-            await _mediator.Send(command);
+            await _mediator.Send(new DeletePricingCommand(id));
             return Ok("Ücretlendirme Bilgisi silindi.");
         }
         [HttpPut]

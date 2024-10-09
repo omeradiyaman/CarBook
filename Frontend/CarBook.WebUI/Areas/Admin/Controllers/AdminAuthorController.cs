@@ -1,4 +1,4 @@
-﻿using CarBook.Dto.AboutDtos;
+﻿using CarBook.Dto.AuthorDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
@@ -7,78 +7,78 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]/{id?}")]
-    public class AdminAboutController : Controller
+    public class AdminAuthorController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public AdminAboutController(IHttpClientFactory httpClientFactory)
+        public AdminAuthorController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7263/api/About");
+            var responseMessage = await client.GetAsync("https://localhost:7263/api/Author");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultAboutDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultAuthorDto>>(jsonData);
                 return View(values);
             }
             return View();
         }
         [HttpGet]
-        public IActionResult CreateAbout()
+        public IActionResult CreateAuthor()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto)
+        public async Task<IActionResult> CreateAuthor(CreateAuthorDto createAuthorDto)
         {
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createAboutDto);
+            var jsonData = JsonConvert.SerializeObject(createAuthorDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7263/api/About/", stringContent);
+            var responseMessage = await client.PostAsync("https://localhost:7263/api/Author/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index", "AdminAbout", new { area = "Admin" });
+                return RedirectToAction("Index", "AdminAuthor", new { area = "Admin" });
             }
             return View();
         }
-        public async Task<IActionResult> DeleteAbout(int id)
+        public async Task<IActionResult> DeleteAuthor(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:7263/api/About/?id={id}");
+            var responseMessage = await client.DeleteAsync($"https://localhost:7263/api/Author/?id={id}");
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index", "AdminAbout", new { area = "Admin" });
+                return RedirectToAction("Index", "AdminAuthor", new { area = "Admin" });
             }
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> UpdateAbout(int id)
+        public async Task<IActionResult> UpdateAuthor(int id)
         {
             var client = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync($"https://localhost:7263/api/About/{id}");
+            var responseMessage = await client.GetAsync($"https://localhost:7263/api/Author/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateAboutDto>(jsonData);
+                var values = JsonConvert.DeserializeObject<UpdateAuthorDto>(jsonData);
                 return View(values);
             }
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateAbout(UpdateAboutDto updateAboutDto)
+        public async Task<IActionResult> UpdateAuthor(UpdateAuthorDto updateAuthorDto)
         {
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateAboutDto);
+            var jsonData = JsonConvert.SerializeObject(updateAuthorDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:7263/api/About/", stringContent);
+            var responseMessage = await client.PutAsync("https://localhost:7263/api/Author/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index", "AdminAbout", new { area = "Admin" });
+                return RedirectToAction("Index", "AdminAuthor", new { area = "Admin" });
             }
             return View();
         }

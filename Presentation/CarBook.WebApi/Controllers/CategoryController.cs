@@ -48,9 +48,9 @@ namespace CarBook.WebApi.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteCategory(DeleteCategoryCommand command)
+        public async Task<IActionResult> DeleteCategory(int id)
         {
-            await _deleteCategoryCommandHandler.Handle(command);
+            await _deleteCategoryCommandHandler.Handle(new DeleteCategoryCommand(id));
             return Ok("Kategori Bilgisi new'lenmeden silinddi.");
         }
 
