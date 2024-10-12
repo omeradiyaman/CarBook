@@ -47,10 +47,11 @@ namespace CarBook.WebApi.Controllers
             await _createCarCommandHandler.Handle(command);
             return Ok("Araba eklendi.");
         }
-        [HttpDelete]
-        public async Task<IActionResult> DeleteCar(DeleteCarCommand command)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCar(int id)
         {
-            await _deleteCarCommandHandler.Handle(command);
+            
+            await _deleteCarCommandHandler.Handle(new DeleteCarCommand(id));
             return Ok("Araba silindi.");
         }
         [HttpPut]

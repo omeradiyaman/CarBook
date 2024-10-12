@@ -22,6 +22,9 @@ namespace CarBook.Application.Features.Mediator.Handlers.AuthorHandlers.Write
         public async Task Handle(UpdateAuthorCommand request, CancellationToken cancellationToken)
         {
             var value = await _repository.GetByIdAsync(request.AuthorId);
+            value.Description = request.Description;
+            value.Name = request.Name;
+            value.ImageUrl = request.ImageUrl;
             await _repository.UpdateAsync(value);
         }
     }

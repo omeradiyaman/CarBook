@@ -35,9 +35,9 @@ namespace CarBook.WebApi.Controllers
             return Ok("Sosyal Medya Bilgisi Eklendi.");
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleteSocialMedia(DeleteSocialMediaCommand command)
+        public async Task<IActionResult> DeleteSocialMedia(int id)
         {
-            await _mediator.Send(command);
+            await _mediator.Send(new DeleteSocialMediaCommand(id));
             return Ok("Sosyal Medya Bilgisi silindi.");
         }
         [HttpPut]

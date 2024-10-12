@@ -44,10 +44,10 @@ namespace CarBook.WebApi.Controllers
             await _createBrandCommandHandler.Handle(command);
             return Ok("Marka eklendi");
         }
-        [HttpDelete]
-        public async Task<IActionResult> DeleteBrand(DeleteBrandCommand command)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteBrand(int id)
         {
-            await _deleteBrandCommandHandler.Handle(command);
+            await _deleteBrandCommandHandler.Handle(new DeleteBrandCommand(id));
             return Ok("Marka silinmiştir.");
         }
         [HttpPut]

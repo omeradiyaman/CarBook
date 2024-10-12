@@ -34,9 +34,9 @@ namespace CarBook.WebApi.Controllers
             return Ok("Yer Bilgisi Eklendi");
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleteLocation(DeleteLocationCommand command)
+        public async Task<IActionResult> DeleteLocation(int id)
         {
-            await _mediator.Send(command);
+            await _mediator.Send(new DeleteLocationCommand(id));
             return Ok("Yer Bilgisi Silindi");
         }
         [HttpPut]
