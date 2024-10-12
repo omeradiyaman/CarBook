@@ -1,0 +1,43 @@
+﻿@model UpdateServiceDto
+
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Hizmet Güncelleme Sayfası</h4>
+                        <p class="card-subtitle mb-4">Ana sayfa ve hizmetler bölümünde yer alan hizmet güncelleme sayfasıdır. Tema bütünlüğünün korunması adına 4 adet hizmet girişi yapınız.</p>
+
+                        <form method="post">
+                            <input type="hidden" asp-for="ServiceId" />
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Hizmet Adı</label>
+                                <input type="text" class="form-control" id="exampleInputTitle" asp-for="Title" placeholder="Hizmet Başlığını Giriniz.">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Açıklama</label>
+                                <input type="text" class="form-control" id="exampleInputDescription" asp-for="Description" placeholder="Hizmet Açıklamasını Giriniz.">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Ikon</label>
+                                <input type="text" class="form-control" id="exampleInputIcon" asp-for="ImageUrl" placeholder="Hizmet Ikon Bilgisini Giriniz.">
+                            </div>
+
+                            <button type="submit" class="btn btn-success waves-effect waves-light">Hizmet Bilgisini Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
