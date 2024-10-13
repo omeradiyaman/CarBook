@@ -8,6 +8,6 @@ namespace CarBook.Application.Features.Mediator.Results.StatisticResults
 {
     public class GetCarBrandAndModelByRentPriceDailyMinQueryResult
     {
-        public string Car { get; set; }
+        public string MinPriceCarBrandAndModel { get; set; }
     }
 }

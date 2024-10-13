@@ -8,6 +8,6 @@ namespace CarBook.Application.Features.Mediator.Results.StatisticResults
 {
     public class GetAvgRentPriceForDailyQueryResult
     {
-        public decimal AvgDailyPrice { get; set; }
+        public decimal AvgPriceDaily { get; set; }
     }
 }

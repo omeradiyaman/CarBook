@@ -24,7 +24,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.StatisticHandlers
             var value = _repository.GetCarBrandAndModelByRentPriceDailyMin();
             return new GetCarBrandAndModelByRentPriceDailyMinQueryResult
             {
-                Car = value,
+                MinPriceCarBrandAndModel = value,
             };
         }
     }

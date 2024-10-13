@@ -23,7 +23,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.StatisticHandlers
             var value = _repository.GetCarCountByFuelElectric();
             return new GetCarCountByFuelElectricQueryResult
             {
-                FuelElectricCount = value,
+                FuelElectricCarCount = value,
             };
         }
     }

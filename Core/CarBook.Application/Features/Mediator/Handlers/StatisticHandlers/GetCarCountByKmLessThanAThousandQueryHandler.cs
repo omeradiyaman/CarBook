@@ -24,7 +24,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.StatisticHandlers
             var value = _repository.GetCarCountByKmLessThanAThousand();
             return new GetCarCountByKmLessThanAThousandQueryResult
             {
-                CarCount = value,
+                CarCountByLessThanAThousandKm = value,
             };
         }
     }

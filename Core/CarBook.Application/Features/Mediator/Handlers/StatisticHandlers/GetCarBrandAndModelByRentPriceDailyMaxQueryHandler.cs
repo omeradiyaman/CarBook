@@ -24,7 +24,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.StatisticHandlers
             var value = _repository.GetCarBrandAndModelByRentPriceDailyMax();
             return new GetCarBrandAndModelByRentPriceDailyMaxQueryResult
             {
-                Car = value,
+                MaxPriceCarBrandAndModel = value,
             };
         }
     }

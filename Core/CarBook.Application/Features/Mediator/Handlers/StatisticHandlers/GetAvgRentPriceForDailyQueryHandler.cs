@@ -24,7 +24,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.StatisticHandlers
             var value = _repository.GetAvgRentPriceForDaily();
             return new GetAvgRentPriceForDailyQueryResult
             {
-                AvgDailyPrice = value,
+                AvgPriceDaily = value,
             };
         }
     }

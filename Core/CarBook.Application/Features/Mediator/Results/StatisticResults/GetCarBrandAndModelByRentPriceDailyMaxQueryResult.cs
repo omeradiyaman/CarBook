@@ -8,6 +8,6 @@ namespace CarBook.Application.Features.Mediator.Results.StatisticResults
 {
     public class GetCarBrandAndModelByRentPriceDailyMaxQueryResult
     {
-        public string Car { get; set; }
+        public string MaxPriceCarBrandAndModel { get; set; }
     }
 }

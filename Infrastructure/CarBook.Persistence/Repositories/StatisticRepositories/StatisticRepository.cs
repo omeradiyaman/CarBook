@@ -72,7 +72,10 @@ namespace CarBook.Persistence.Repositories.StatisticRepositories
             var value = _context.CarPricings
                         .Where(x => x.PricingId == 2)
                         .OrderByDescending(x => x.Amount)
-                        .Select(x => new { x.Car.Model, x.Car.Brand.Name })
+                        .Select(x => new {
+                            Model = x.Car.Model,
+                            Marka = x.Car.Brand.Name
+                        })
                         .FirstOrDefault();
             return value.ToString();
         }
@@ -82,7 +85,11 @@ namespace CarBook.Persistence.Repositories.StatisticRepositories
             var value = _context.CarPricings
                         .Where(x => x.PricingId == 2)
                         .OrderBy(x => x.Amount)
-                        .Select(x => new { x.Car.Model, x.Car.Brand.Name })
+                        .Select(x => new
+                        {
+                           x.Car.Model,
+                           Marka = x.Car.Brand
+                        })
                         .FirstOrDefault();
             return value.ToString();
         }

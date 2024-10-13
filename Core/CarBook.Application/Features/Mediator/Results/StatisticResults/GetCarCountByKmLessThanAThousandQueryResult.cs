@@ -8,6 +8,6 @@ namespace CarBook.Application.Features.Mediator.Results.StatisticResults
 {
     public class GetCarCountByKmLessThanAThousandQueryResult
     {
-        public int CarCount { get; set; }
+        public int CarCountByLessThanAThousandKm { get; set; }
     }
 }
