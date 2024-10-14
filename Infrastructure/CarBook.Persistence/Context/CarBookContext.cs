@@ -15,21 +15,46 @@ namespace CarBook.Persistence.Context
             optionsBuilder.UseSqlServer("Server=MAHSUN;initial Catalog=CarBookDb;integrated security=true;TrustServerCertificate=true;");
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Car>()
-        //         .HasOne(c => c.Brand)
-        //         .WithMany(b => b.Cars)
-        //         .HasForeignKey(c => c.BrandId);
-        //    modelBuilder.Entity<CarFeature>()
-        //        .HasOne(c => c.Feature)
-        //        .WithMany(cf=>cf.CarFeatures)
-        //        .HasForeignKey(cf=>cf.FeatureId);
-        //    modelBuilder.Entity<CarFeature>()
-        //        .HasOne(c => c.Car)
-        //        .WithMany(f => f.CarFeatures)
-        //        .HasForeignKey(cf => cf.CarId);
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Car>()
+                 .HasOne(c => c.Brand)
+                 .WithMany(b => b.Cars)
+                 .HasForeignKey(c => c.BrandId);
+
+            modelBuilder.Entity<CarFeature>()
+                .HasOne(c => c.Feature)
+                .WithMany(cf => cf.CarFeatures)
+                .HasForeignKey(cf => cf.FeatureId);
+            modelBuilder.Entity<CarFeature>()
+                .HasOne(c => c.Car)
+                .WithMany(f => f.CarFeatures)
+                .HasForeignKey(cf => cf.CarId);
+
+            modelBuilder.Entity<RentACar>()
+                .HasOne(c => c.Car)
+                .WithMany(a => a.RentACars)
+                .HasForeignKey(x => x.CarId);
+            modelBuilder.Entity<RentACar>()
+                .HasOne(c => c.Location)
+                .WithMany(a => a.RentACars)
+                .HasForeignKey(rc => rc.LocationId);
+            
+
+            modelBuilder.Entity<RentACarProcess>()
+                .HasOne(c => c.Car)
+                .WithMany(a => a.RentACarProcesses)
+                .HasForeignKey(x => x.CarId);
+            modelBuilder.Entity<RentACarProcess>()
+                .HasOne(c => c.Customer)
+                .WithMany(a => a.RentACarProcesses)
+                .HasForeignKey(x => x.CustomerId);
+            modelBuilder.Entity<RentACarProcess>().Property(e => e.PickUpDate).HasColumnType("Date");
+            modelBuilder.Entity<RentACarProcess>().Property(e => e.DropOffDate).HasColumnType("Date");
+            modelBuilder.Entity<RentACarProcess>().Property(e => e.PickUpTime).HasColumnType("Time");
+            modelBuilder.Entity<RentACarProcess>().Property(e => e.DropOffTime).HasColumnType("Time");
+
+        }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<Brand> Brands { get; set; }
@@ -50,5 +75,8 @@ namespace CarBook.Persistence.Context
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<TagCloud> TagClouds { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<RentACar> RentACars { get; set; }
+        public DbSet<RentACarProcess> RentACarProcesses { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }
