@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Application.Features.Mediator.Handlers.StatisticHandlers
+namespace CarBook.Application.Features.Mediator.Handlers.StatisticHandlers.Read
 {
     public class GetCarCountQueryHandler : IRequestHandler<GetCarCountQuery, GetCarCountQueryResult>
     {
