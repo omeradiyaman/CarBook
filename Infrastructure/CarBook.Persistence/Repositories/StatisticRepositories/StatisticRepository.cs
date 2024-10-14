@@ -70,28 +70,29 @@ namespace CarBook.Persistence.Repositories.StatisticRepositories
         public string GetCarBrandAndModelByRentPriceDailyMax()
         {
             var value = _context.CarPricings
-                        .Where(x => x.PricingId == 2)
-                        .OrderByDescending(x => x.Amount)
-                        .Select(x => new {
-                            Model = x.Car.Model,
-                            Marka = x.Car.Brand.Name
-                        })
-                        .FirstOrDefault();
-            return value.ToString();
+                         .Where(x => x.PricingId == 2)
+                         .OrderByDescending(x => x.Amount)
+                         .Select(x => new
+                         {
+                             AracModeli = x.Car.Model,
+                             MarkaAdi = x.Car.Brand.Name
+                         })
+                         .FirstOrDefault();
+            return $" {value.AracModeli} - {value.MarkaAdi}";
         }
 
         public string GetCarBrandAndModelByRentPriceDailyMin()
         {
             var value = _context.CarPricings
-                        .Where(x => x.PricingId == 2)
-                        .OrderBy(x => x.Amount)
-                        .Select(x => new
-                        {
-                           x.Car.Model,
-                           Marka = x.Car.Brand
-                        })
-                        .FirstOrDefault();
-            return value.ToString();
+                         .Where(x => x.PricingId == 2)
+                         .OrderBy(x => x.Amount)
+                         .Select(x => new
+                         {
+                             AracModeli = x.Car.Model,
+                             MarkaAdi = x.Car.Brand.Name
+                         })
+                         .FirstOrDefault();
+            return $" {value.AracModeli} - {value.MarkaAdi}";
         }
 
         public int GetCarCount()

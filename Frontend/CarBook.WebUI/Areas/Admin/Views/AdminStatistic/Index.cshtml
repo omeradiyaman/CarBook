@@ -220,13 +220,13 @@
                 <div class="card bg-primary border-primary">
                     <div class="card-body">
                         <div class="mb-4">
-                            <span class="badge badge-soft-light float-right">Otomatik Araç Sayısı</span>
-                            <h5 class="card-title mb-0 text-white">Cost per Unit</h5>
+                            <span class="badge badge-soft-light float-right">Otomatik Vitesli Araç Sayısı</span>
+                            <h5 class="card-title mb-0 text-white">Araç Sayısı</h5>
                         </div>
                         <div class="row d-flex align-items-center mb-4">
                             <div class="col-8">
                                 <h2 class="d-flex align-items-center mb-0 text-white">
-                                    @ViewBag.autoTransmissionCarCount
+                                  #  @ViewBag.autoTransmissionCarCount
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
@@ -245,13 +245,13 @@
                 <div class="card bg-success border-success">
                     <div class="card-body">
                         <div class="mb-4">
-                            <span class="badge badge-soft-light float-right">Araç Sayısı En Çok Olan Marka</span>
-                            <h5 class="card-title mb-0 text-white">Market Revenue</h5>
+                            <span class="badge badge-soft-light float-right">En Fazla Araçlı Marka</span>
+                            <h5 class="card-title mb-0 text-white">Marka Adı</h5>
                         </div>
                         <div class="row d-flex align-items-center mb-4">
                             <div class="col-8">
                                 <h2 class="d-flex align-items-center text-white mb-0">
-                                    @ViewBag.brandName 
+                                  #  @ViewBag.brandName 
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
@@ -270,13 +270,13 @@
                 <div class="card bg-warning border-warning">
                     <div class="card-body">
                         <div class="mb-4">
-                            <span class="badge badge-soft-light float-right">Yorum Sayısı En Çok Blog</span>
-                            <h5 class="card-title mb-0 text-white">Expenses</h5>
+                            <span class="badge badge-soft-light float-right">En Fazla Yorum Alan Blog</span>
+                            <h5 class="card-title mb-0 text-white">Blog Başlığı</h5>
                         </div>
                         <div class="row d-flex align-items-center mb-4">
                             <div class="col-8">
                                 <h2 class="d-flex align-items-center text-white mb-0">
-                                    @ViewBag.blogTitle
+                                   # @ViewBag.blogTitle
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
@@ -295,13 +295,13 @@
                 <div class="card bg-info border-info">
                     <div class="card-body">
                         <div class="mb-4">
-                            <span class="badge badge-soft-light float-right">1000Km' den Düşük Araç Sayısı</span>
-                            <h5 class="card-title mb-0 text-white">Daily Visits</h5>
+                            <span class="badge badge-soft-light float-right">10000Km Altındaki Araçlar</span>
+                            <h5 class="card-title mb-0 text-white">Araç Sayısı</h5>
                         </div>
                         <div class="row d-flex align-items-center mb-4">
                             <div class="col-8">
                                 <h2 class="d-flex align-items-center text-white mb-0">
-                                    @ViewBag.blogTitle
+                                    # @ViewBag.carCountByLessThanAThousandKm
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
@@ -324,13 +324,13 @@
                 <div class="card bg-primary border-primary">
                     <div class="card-body">
                         <div class="mb-4">
-                            <span class="badge badge-soft-light float-right">Benzin veya Dizel Araç Sayısı</span>
-                            <h5 class="card-title mb-0 text-white">Cost per Unit</h5>
+                            <span class="badge badge-soft-light float-right">Yakıt Türü</span>
+                            <h5 class="card-title mb-0 text-white">Benzin veya Dizel Araç Sayısı</h5>
                         </div>
                         <div class="row d-flex align-items-center mb-4">
                             <div class="col-8">
                                 <h2 class="d-flex align-items-center mb-0 text-white">
-                                    @ViewBag.fuelGasolineOrDieselCarCount
+                                  #  @ViewBag.fuelGasolineOrDieselCarCount
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
@@ -349,13 +349,13 @@
                 <div class="card bg-success border-success">
                     <div class="card-body">
                         <div class="mb-4">
-                            <span class="badge badge-soft-light float-right">Elektrikli Araç Sayısı</span>
-                            <h5 class="card-title mb-0 text-white">Market Revenue</h5>
+                            <span class="badge badge-soft-light float-right">Yakıt Türü</span>
+                            <h5 class="card-title mb-0 text-white">Elektrikli Araç Sayısı</h5>
                         </div>
                         <div class="row d-flex align-items-center mb-4">
                             <div class="col-8">
                                 <h2 class="d-flex align-items-center text-white mb-0">
-                                    @ViewBag.fuelElectricCarCount
+                                   # @ViewBag.fuelElectricCarCount
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
@@ -374,8 +374,8 @@
                 <div class="card bg-warning border-warning">
                     <div class="card-body">
                         <div class="mb-4">
-                            <span class="badge badge-soft-light float-right">En Yüksek Fiyata Sahip Aracın Marka ve Modeli</span>
-                            <h5 class="card-title mb-0 text-white">Expenses</h5>
+                            <span class="badge badge-soft-light float-right">Günlük Kiralama Fiyatı</span>
+                            <h5 class="card-title mb-0 text-white">En Pahalı Araç</h5>
                         </div>
                         <div class="row d-flex align-items-center mb-4">
                             <div class="col-8">
@@ -399,8 +399,8 @@
                 <div class="card bg-info border-info">
                     <div class="card-body">
                         <div class="mb-4">
-                            <span class="badge badge-soft-light float-right">En Düşük Fiyata Sahip Aracın Marka ve Modeli</span>
-                            <h5 class="card-title mb-0 text-white">Daily Visits</h5>
+                            <span class="badge badge-soft-light float-right">Günlük Kiralama Fiyatı</span>
+                            <h5 class="card-title mb-0 text-white">En Ucuz</h5>
                         </div>
                         <div class="row d-flex align-items-center mb-4">
                             <div class="col-8">
@@ -409,7 +409,7 @@
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <span class="text-white-50">@ViewBag.maxPriceCarBrandAndModelRandom% <i class="mdi mdi-arrow-down"></i></span>
+                                <span class="text-white-50"> @ViewBag.maxPriceCarBrandAndModelRandom% <i class="mdi mdi-arrow-down"></i></span>
                             </div>
                         </div>
 
