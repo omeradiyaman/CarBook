@@ -1,4 +1,6 @@
-﻿using CarBook.Dto.LocationDtos;
+﻿using CarBook.Dto.BrandDtos;
+using CarBook.Dto.LocationDtos;
+using CarBook.Dto.RentACarDtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -13,7 +15,6 @@ namespace CarBook.WebUI.ViewComponents.RentACarFilterComponents
         {
             _httpClientFactory = httpClientFactory;
         }
-
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
@@ -21,10 +22,10 @@ namespace CarBook.WebUI.ViewComponents.RentACarFilterComponents
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<IEnumerable<ResultLocationDto>>(jsonData);
             IEnumerable<SelectListItem> datas = values.Select(x => new SelectListItem
-                                                                {
-                                                                    Text = x.Name,
-                                                                    Value = x.LocationId.ToString()
-                                                                }).ToList();
+            {
+                Text = x.Name,
+                Value = x.LocationId.ToString()
+            }).ToList();
             ViewBag.datas = datas;
 
             return View();

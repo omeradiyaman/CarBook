@@ -13,13 +13,12 @@
 
                         <h4 class="card-title">Yeni Araç Girişi</h4>
                         <p class="card-subtitle mb-4">Araç ile ilgili temel bilgileri eksiksiz doldurmanız önemle rica olunur. Kaydet butonuna basmayı unutmayınız.</p>
-
                         <form method="post">
                             <div class="form-group">
                                 <label for="exampleInputBrand">Marka</label>
                                 @* @Html.DropDownListFor(x=>x.BrandId,(List<SelectListItem>)ViewBag.brandValues, new {@class="form-control"}) *@
                                 <select class="form-control" asp-for="BrandId" asp-items=@ViewBag.BrandValues>
-                                <option value="---Seçiniz---"></option>
+                                    <option value="">---Seçiniz---</option>
                                 </select>
                             </div>
                             <div class="form-group">
