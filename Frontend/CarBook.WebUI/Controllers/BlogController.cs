@@ -12,6 +12,7 @@ namespace CarBook.WebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
+       
         public async Task<IActionResult> Index()
         {
             ViewBag.v1 = "Bloglar";
