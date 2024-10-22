@@ -11,19 +11,19 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Handlers.CommentHandlers.Read
 {
-    public class GetCommentByIdQueryHandler : IRequestHandler<GetCommentByIdQuery, GetCommentByIdQueryResult>
+    public class GetCommentsByIdQueryHandler : IRequestHandler<GetCommentsByIdQuery, GetCommentsByIdQueryResult>
     {
         private readonly IRepository<Comment> _repository;
 
-        public GetCommentByIdQueryHandler(IRepository<Comment> repository)
+        public GetCommentsByIdQueryHandler(IRepository<Comment> repository)
         {
             _repository = repository;
         }
 
-        public async Task<GetCommentByIdQueryResult> Handle(GetCommentByIdQuery request, CancellationToken cancellationToken)
+        public async Task<GetCommentsByIdQueryResult> Handle(GetCommentsByIdQuery request, CancellationToken cancellationToken)
         {
             var value = await _repository.GetByIdAsync(request.Id);
-            return new GetCommentByIdQueryResult
+            return new GetCommentsByIdQueryResult
             {
                 BlogId = value.BlogId,
                 CommentId = value.CommentId,

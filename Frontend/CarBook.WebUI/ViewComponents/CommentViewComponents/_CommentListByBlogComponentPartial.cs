@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace CarBook.WebUI.ViewComponents.BlogViewComponents
+namespace CarBook.WebUI.ViewComponents.CommentViewComponents
 {
     public class _CommentListByBlogComponentPartial : ViewComponent
     {
@@ -15,7 +15,7 @@ namespace CarBook.WebUI.ViewComponents.BlogViewComponents
         public async Task<IViewComponentResult> InvokeAsync(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:7263/api/Comment/GetCommentByBlogId?id={id}");
+            var responseMessage = await client.GetAsync($"https://localhost:7263/api/Comment/GetCommentsByBlogId?id={id}");
 
             if (responseMessage.IsSuccessStatusCode)
             {

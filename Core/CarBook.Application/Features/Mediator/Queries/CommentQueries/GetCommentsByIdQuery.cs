@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Queries.CommentQueries
 {
-    public class GetCommentByIdQuery : IRequest<GetCommentByIdQueryResult>
+    public class GetCommentsByIdQuery : IRequest<GetCommentsByIdQueryResult>
     {
         public int Id { get; set; }
 
-        public GetCommentByIdQuery(int ıd)
+        public GetCommentsByIdQuery(int ıd)
         {
             Id = ıd;
         }

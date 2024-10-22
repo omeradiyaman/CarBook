@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Results.CommentResults
 {
-    public class GetCommentByIdQueryResult
+    public class GetCommentsByIdQueryResult
     {
         public int CommentId { get; set; }
         public string Name { get; set; }

@@ -69,7 +69,7 @@ namespace CarBook.Persistence.Repositories.CarPricingRepositories
 			var carPricings = values.Select(x => new ResultCarPricingsWithTimePeriodsDto
 			{
 				CarId = x.CarId,
-				BrandAndModel = x.Name + "" + x.Model,
+				BrandAndModel = x.Name + " " + x.Model,
 				CoverImageUrl = x.CoverImageUrl,
 				DailyAmount = x.DailyAmount,
 				WeeklyAmount = x.WeeklyAmount,

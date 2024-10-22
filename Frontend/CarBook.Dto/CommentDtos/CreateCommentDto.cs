@@ -1,13 +1,12 @@
-﻿using MediatR;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Application.Features.Mediator.Commands.CommentCommands
+namespace CarBook.Dto.CommentDtos
 {
-    public class CreateCommentCommand : IRequest
+    public class CreateCommentDto
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -15,5 +14,6 @@ namespace CarBook.Application.Features.Mediator.Commands.CommentCommands
         public DateTime CreatedDate { get; set; }
         public string? ImageUrl { get; set; }
         public int BlogId { get; set; }
+
     }
 }
