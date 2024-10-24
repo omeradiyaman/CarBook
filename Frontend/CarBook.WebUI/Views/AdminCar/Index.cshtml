@@ -28,6 +28,7 @@
                                         <th>Sil</th>
                                         <th>Güncelle</th>
                                         <th>Detaylar</th>
+                                        <th>Özellik</th>
                                         <th>Sitede Gör</th>
                                         <th>Fiyat Listesi</th>
                                     </tr>
@@ -38,16 +39,17 @@
                                         count++;
                                         <tr>
                                             <th scope="row">@count</th>
-                                            <td>@item.CoverImageUrl</td>
+                                            <td><img src="@item.CoverImageUrl" alt="Cover Image" style="width: 100px; height: auto;"/> </td>
                                             <td>@item.BrandName</td>
                                             <td>@item.Model</td>
                                             <td>@item.Transmission</td>
                                             <td>@item.Mileage</td>
                                             <td><a href="/AdminCar/DeleteCar/@item.CarId" class="btn btn-outline-danger">Sil</a></td>
                                             <td><a href="/AdminCar/UpdateCar/@item.CarId" class="btn btn-outline-success">Güncelle</a></td>
-                                            <td><a href="/CarList/CarDetail/@item.CarId" class="btn btn-outline-dark">Detaylar</a></td>
-                                            <td><a href="/CarList/CarDetail/@item.CarId" class="btn btn-outline-warning">Sitede Gör</a></td>
-                                            <td><a href="/CarList/CarDetail/@item.CarId" class="btn btn-outline-secondary">Sitede Gör</a></td>
+                                            <td><a href="/Admin/AdminCarFeatureDetail/Index/@item.CarId" class="btn btn-outline-dark">Detaylar</a></td>
+                                            <td><a href="/Admin/AdminCarFeatureDetail/CreateFeatureByCarId/@item.CarId" class="btn btn-outline-info">Özellik Ata</a></td>
+                                            <td><a href="/AdminCar/CarDetail/@item.CarId" class="btn btn-outline-warning">Sitede Gör</a></td>
+                                            <td><a href="/AdminCar/CarDetail/@item.CarId" class="btn btn-outline-secondary">Sitede Gör</a></td>
                                         </tr>
                                     }
                                 </tbody>
