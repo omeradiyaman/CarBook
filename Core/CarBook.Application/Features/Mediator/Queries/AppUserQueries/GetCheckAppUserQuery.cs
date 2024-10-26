@@ -13,10 +13,5 @@ namespace CarBook.Application.Features.Mediator.Queries.AppUserQueries
 		public string Username { get; set; }
         public string Password { get; set; }
 
-		public GetCheckAppUserQuery(string username, string password)
-		{
-			Username = username;
-			Password = password;
-		}
 	}
 }

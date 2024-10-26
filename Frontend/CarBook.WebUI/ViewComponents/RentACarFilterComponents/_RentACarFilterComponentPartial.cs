@@ -1,9 +1,8 @@
-﻿using CarBook.Dto.BrandDtos;
-using CarBook.Dto.LocationDtos;
-using CarBook.Dto.RentACarDtos;
+﻿using CarBook.Dto.LocationDtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace CarBook.WebUI.ViewComponents.RentACarFilterComponents
 {
@@ -17,17 +16,22 @@ namespace CarBook.WebUI.ViewComponents.RentACarFilterComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7263/api/Location");
-            var jsonData = await responseMessage.Content.ReadAsStringAsync();
-            var values = JsonConvert.DeserializeObject<IEnumerable<ResultLocationDto>>(jsonData);
-            IEnumerable<SelectListItem> datas = values.Select(x => new SelectListItem
+            var token = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "carbooktoken")?.Value;
+            if (token != null)
             {
-                Text = x.Name,
-                Value = x.LocationId.ToString()
-            }).ToList();
-            ViewBag.datas = datas;
+                var client = _httpClientFactory.CreateClient();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var responseMessage = await client.GetAsync("https://localhost:7263/api/Location");
 
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<IEnumerable<ResultLocationDto>>(jsonData);
+                IEnumerable<SelectListItem> datas = values.Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.LocationId.ToString()
+                }).ToList();
+                ViewBag.datas = datas;
+            }
             return View();
         }
     }
