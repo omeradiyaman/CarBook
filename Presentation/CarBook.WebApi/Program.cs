@@ -23,6 +23,7 @@ using CarBook.Application.Interfaces.ReviewInterfaces;
 using CarBook.Application.Interfaces.StatisticInterfaces;
 using CarBook.Application.Interfaces.TagCloudInterfaces;
 using CarBook.Application.Services;
+using CarBook.Application.Tools;
 using CarBook.Application.Validators.ReviewValidators;
 using CarBook.Domain.Entities;
 using CarBook.Persistence.Context;
@@ -40,9 +41,28 @@ using CarBook.Persistence.Repositories.TagCloudRepositories;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//JSON WEB TOKEN(Json Bearer)
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+	opt.RequireHttpsMetadata = false;
+	opt.TokenValidationParameters = new TokenValidationParameters
+	{
+		ValidAudience = JwtTokenDefaults.ValidAudience,
+		ValidIssuer = JwtTokenDefaults.ValidIssuer,
+		ClockSkew = TimeSpan.Zero,
+		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenDefaults.Key)),
+		ValidateLifetime = true,
+		ValidateIssuerSigningKey = true
+	};
+});
+
 
 // Add services to the container.
 
@@ -103,12 +123,13 @@ builder.Services.AddScoped<DeleteContactCommandHandler>();
 
 builder.Services.AddApplicationService(builder.Configuration);
 
+//Validation Saðlýklý ve Temiz olan yöntem!
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateReviewValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateReviewValidator>();
 
-//Validation 1.Yöntem
+//Validation Geliþmiþ yöntem.
 //builder.Services.AddControllers().AddFluentValidation(x =>
 //{
 //    x.ImplicitlyValidateChildProperties = true;
@@ -127,12 +148,13 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	app.UseSwagger();
+	app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
