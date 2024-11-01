@@ -6,9 +6,7 @@ using System.Text;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    [Route("Admin/[controller]/[action]/{id?}")]
-    public class AdminFooterAddressController : Controller
+    public class AdminFooterAddressController : AdminBaseController
     {
         private readonly IHttpClientFactory _httpClientFactory;
 

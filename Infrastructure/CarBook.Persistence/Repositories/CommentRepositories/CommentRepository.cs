@@ -25,5 +25,11 @@ namespace CarBook.Persistence.Repositories.CommentRepositories
             var values = await _context.Comments.Include(x => x.Blog).Where(y => y.BlogId == id).ToListAsync();
             return values;
         }
+
+        public async Task<int> GetCommentsCountByBlogId(int id)
+        {
+            var values = await _context.Comments.Where(x => x.BlogId == id).CountAsync();
+            return values;
+        }
     }
 }

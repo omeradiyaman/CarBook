@@ -1,13 +1,13 @@
 ﻿using CarBook.Dto.LocationDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    [Route("Admin/[controller]/[action]/{id?}")]
-    public class AdminLocationController : Controller
+    public class AdminLocationController : AdminBaseController
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
