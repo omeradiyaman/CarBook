@@ -7,10 +7,7 @@ using System.Text;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin")]
-    [Area("Admin")]
-    [Route("Admin/[controller]/[action]/{id?}")]
-    public class AdminLocationController : Controller
+    public class AdminLocationController : AdminBaseController
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -20,18 +17,13 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var token = User.Claims.FirstOrDefault(x => x.Type == "carbooktoken")?.Value;
-            if (token != null)
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7263/api/Location");
+            if (responseMessage.IsSuccessStatusCode)
             {
-                var client = _httpClientFactory.CreateClient();
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                var responseMessage = await client.GetAsync("https://localhost:7263/api/Location");
-                if (responseMessage.IsSuccessStatusCode)
-                {
-                    var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                    var values = JsonConvert.DeserializeObject<List<ResultLocationDto>>(jsonData);
-                    return View(values);
-                }
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultLocationDto>>(jsonData);
+                return View(values);
             }
             return View();
         }

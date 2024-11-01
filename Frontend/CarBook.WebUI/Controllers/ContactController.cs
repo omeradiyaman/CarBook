@@ -17,7 +17,6 @@ namespace CarBook.WebUI.Controllers
 
         public IActionResult Index()
         {
-
             return View();
         }
         [HttpPost]

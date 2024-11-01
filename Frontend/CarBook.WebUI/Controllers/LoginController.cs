@@ -1,4 +1,5 @@
 ﻿using CarBook.Dto.LoginDtos;
+using CarBook.WebApi.ViewModels;
 using CarBook.WebUI.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -40,7 +41,7 @@ namespace CarBook.WebUI.Controllers
                 if (tokenModel != null)
                 {
                     JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
-                    
+
                     var token = handler.ReadJwtToken(tokenModel.Token);
                     var claims = token.Claims.ToList();
 
@@ -54,10 +55,20 @@ namespace CarBook.WebUI.Controllers
                             IsPersistent = true
                         };
                         await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProps);
+                        return RedirectToAction("Index", "AdminCar");
                     }
                 }
+                else
+                {
+                    var loginErrorViewModel = new LoginErrorViewModel
+                    {
+                        Message = "Kullanıcı Adı veya Şifre Hatalıdır!",
+                        RedirectUrl = Url.Action("Login", "Index")
+                    };
+                    return BadRequest(loginErrorViewModel);
+                }
             }
-            return RedirectToAction("Index", "Default");
+            return BadRequest("Lütfen Çerezlere İzin Veriniz!");
         }
     }
 }

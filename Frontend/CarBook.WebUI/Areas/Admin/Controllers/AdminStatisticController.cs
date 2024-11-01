@@ -4,9 +4,7 @@ using Newtonsoft.Json;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    [Route("Admin/[controller]/[action]/{id?}")]
-    public class AdminStatisticController : Controller
+    public class AdminStatisticController : AdminBaseController
     {
         private readonly IHttpClientFactory _httpClientFactory;
 

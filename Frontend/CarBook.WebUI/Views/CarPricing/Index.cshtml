@@ -5,6 +5,7 @@
     Layout = "~/Views/UILayout/Index.cshtml";
 }
 
+
 <section class="ftco-section ftco-cart">
     <div class="container">
         <div class="row">
@@ -39,7 +40,7 @@
                                     </td>
 
                                     <td class="price">
-                                        <p class="btn-custom"><a href="#">Hemen Kirala</a></p>
+                                        <p class="btn-custom"><a href="/Reservation/Index/@item.CarId">Hemen Kirala</a></p>
                                         <div class="price-rate">
                                             <h3>
                                                 <span class="num"><small class="currency">₺</small>@item.HourlyAmount</span>
@@ -49,7 +50,7 @@
                                     </td>
 
                                     <td class="price">
-                                        <p class="btn-custom"><a href="#">Hemen Kirala</a></p>
+                                        <p class="btn-custom"><a href="/Reservation/Index/@item.CarId">Hemen Kirala</a></p>
                                         <div class="price-rate">
                                             <h3>
                                                 <span class="num"><small class="currency">₺</small>@item.DailyAmount</span>
@@ -59,7 +60,7 @@
                                     </td>
 
                                     <td class="price">
-                                        <p class="btn-custom"><a href="#">Hemen Kirala</a></p>
+                                        <p class="btn-custom"><a href="/Reservation/Index/@item.CarId">Hemen Kirala</a></p>
                                         <div class="price-rate">
                                             <h3>
                                                 <span class="num"><small class="currency">₺</small>@item.MonthlyAmount</span>
@@ -67,15 +68,14 @@
                                             </h3>
                                         </div>
                                     </td>
-                                    
+
                                 </tr>
-                                <!-- END TR-->
                             }
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 

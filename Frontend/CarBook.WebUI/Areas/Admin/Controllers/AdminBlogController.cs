@@ -1,4 +1,5 @@
 ﻿using CarBook.Dto.BlogDtos;
+using CarBook.WebUI.Areas.Admin.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -6,9 +7,7 @@ using System.Text;
 
 namespace BlogBook.WebUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    [Route("Admin/[controller]/[action]/{id?}")]
-    public class AdminBlogController : Controller
+    public class AdminBlogController : AdminBaseController
     {
         private readonly IHttpClientFactory _httpClientFactory;
 

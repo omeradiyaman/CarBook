@@ -1,6 +1,5 @@
 ﻿@model CreateLoginDto
 
-
 @{
     Layout = null;
 }
@@ -17,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    @* <link rel="shortcut icon" href="assets/images/favicon.ico"> *@
 
     <!-- App css -->
     <link href="~/Admin/vertical/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -34,11 +33,13 @@
                     <div class="d-flex align-items-center min-vh-100">
                         <div class="w-100 d-block bg-white shadow-lg rounded my-5">
                             <div class="row">
-                                <div class="col-lg-5 d-none d-lg-block bg-login rounded-left"></div>
+                                <div class="col-lg-5 d-none d-lg-block bg-login rounded-left">
+                                    @* <img src="~/Admin/vertical/assets/images/your-image.jpg" alt="Login Image" class="img-fluid rounded-start" style="width: 100%; height: auto;"> *@
+                                </div>
                                 <div class="col-lg-7">
                                     <div class="p-5">
                                         <div class="text-center mb-5">
-                                            <a href="/Default/Index" class="text-dark font-size-22 font-family-secondary">
+                                            <a @* href="/Default/Index"  *@class="text-dark font-size-22 font-family-secondary">
                                                 <i class="mdi mdi-alpha-x-circle"></i> <b>CARBOOK</b>
                                             </a>
                                         </div>

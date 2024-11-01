@@ -1,15 +1,14 @@
 ﻿@model List<ResultAllBlogsWithAuthorsDto>
 @{
-    int count = 0;
 }
 
 <div class="col-xl-6">
     <div class="card">
         <div class="card-body">
 
-            <h4 class="card-title">Son Bloglar</h4>
+            <h4 class="card-title">Popüler Bloglar</h4>
             <p class="card-subtitle mb-4 font-size-13">
-                Yazarlarmızın Son Blogları
+                Yazarlarımızın Beğenilen Blogları
             </p>
 
             <div class="table-responsive">
@@ -23,9 +22,8 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            count++;
                             <tr>
-                                <td><h5 class="font-size-15 mb-1 font-weight-normal">@count</h5></td>
+                                <td><img src="@item.CoverImageUrl" alt="Cover Image" style="width: 100px; height: auto;" /> </td>
                                 <td><h5 class="font-size-15 mb-1 font-weight-normal">@item.Title</h5></td>
                                 <td><h5 class="font-size-17 mb-1 font-weight-normal">@item.AuthorName</h5></td>
                                 <td><h5 class="font-size-15 mb-1 font-weight-normal"><a href="/Blog/BlogDetails/@item.BlogId" class="btn btn-primary">Blogu Aç</a></h5></td>
