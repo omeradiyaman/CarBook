@@ -24,4 +24,8 @@
     <ProjectReference Include="..\..\Core\CarBook.Domain\CarBook.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+  </ItemGroup>
+
 </Project>

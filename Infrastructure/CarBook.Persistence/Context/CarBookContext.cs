@@ -1,5 +1,7 @@
 ﻿using CarBook.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,17 @@ namespace CarBook.Persistence.Context
 {
     public class CarBookContext : DbContext
     {
+        private readonly IConfiguration _configuration;
+
+        public CarBookContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=MAHSUN;initial Catalog=CarBookDb;integrated security=true;TrustServerCertificate=true;");
+            var connectionString = _configuration.GetConnectionString("CarBookDb");
+            optionsBuilder.UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -93,8 +103,7 @@ namespace CarBook.Persistence.Context
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<AppRole> AppRoles { get; set; }
-        
+        public DbSet<AppRole> AppRoles { get; set; }      
         
     }
 }
