@@ -26,8 +26,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{E050710A-0AC5-4D23-83A0-F676EC2D3354}"
 	ProjectSection(SolutionItems) = preProject
 		AlertsScripts.txt = AlertsScripts.txt
+		Comments.txt = Comments.txt
 		Register - Forget Password.txt = Register - Forget Password.txt
 		StatisticsList.txt = StatisticsList.txt
+		Testimonials.txt = Testimonials.txt
 	EndProjectSection
 EndProject
 Global

@@ -14,16 +14,16 @@ namespace CarBook.Application.Features.Mediator.Handlers.CommentHandlers.Read
 {
     public class GetCommentsQueryHandler : IRequestHandler<GetCommentsQuery, List<GetCommentsQueryResult>>
     {
-        private readonly IRepository<Comment> _repository;
+        private readonly ICommentRepository _repository;
 
-        public GetCommentsQueryHandler(IRepository<Comment> repository)
+        public GetCommentsQueryHandler(ICommentRepository repository)
         {
             _repository = repository;
         }
 
         public async Task<List<GetCommentsQueryResult>> Handle(GetCommentsQuery request, CancellationToken cancellationToken)
         {
-            var values = await _repository.GetAllAsync();
+            var values = await _repository.GetAllCommentsWithBlogTitleAsync();
             return values.Select(x => new GetCommentsQueryResult
             {
                 BlogId = x.BlogId,
@@ -32,6 +32,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.CommentHandlers.Read
                 Description = x.Description,
                 ImageUrl = x.ImageUrl,
                 Name = x.Name,
+                Title = x.Blog.Title
             }).ToList();
         }
     }

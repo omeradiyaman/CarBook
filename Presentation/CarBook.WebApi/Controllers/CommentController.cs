@@ -50,9 +50,9 @@ namespace CarBook.WebApi.Controllers
             return Ok("Comment Bilgisi Eklendi.");
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleteComment(DeleteCommentCommand command)
+        public async Task<IActionResult> DeleteComment(int id)
         {
-            await _mediator.Send(command);
+            await _mediator.Send(new DeleteCommentCommand(id));
             return Ok("Comment Bilgisi silindi.");
         }
         [HttpPut]

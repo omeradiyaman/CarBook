@@ -1,7 +1,6 @@
 ﻿@model List<ResultLast3BlogsWithAuthors>
-@{
-    Random random = new Random();
-}
+
+
 <div class="sidebar-box ftco-animate">
     <h3>Güncel Bloglar</h3>
     @foreach (var item in Model)
@@ -13,7 +12,7 @@
                 <div class="meta">
                     <div><a href=""><span class="icon-calendar"></span> @item.CreatedDate.ToShortDateString()</a></div>
                     <div><a href=""><span class="icon-person"></span> @item.AuthorName</a></div>
-                    <div><a href=""><span class="icon-chat"></span> @random.Next(1, 10)</a></div>
+                    <div><a href=""><span class="icon-chat"></span> @item.CommentCount</a></div>
                 </div>
             </div>
         </div>

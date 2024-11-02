@@ -1,6 +1,7 @@
 ﻿using CarBook.Dto.BrandDtos;
 using CarBook.Dto.CarDtos;
 using CarBook.Dto.FeatureDtos;
+using CarBook.WebUI.Areas.Admin.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,8 +10,7 @@ using System.Text;
 
 namespace CarBook.WebUI.Controllers
 {
-    [Authorize(Roles = "Admin")]
-    public class AdminFeatureController : Controller
+    public class AdminFeatureController : AdminBaseController
     {
         private readonly IHttpClientFactory _httpClientFactory;
 

@@ -11,5 +11,6 @@ namespace CarBook.Application.Interfaces.CommentInterfaces
     {
         Task<List<Comment>> GetCommentsByBlogId(int id);
         Task<int> GetCommentsCountByBlogId(int id);
+        Task<List<Comment>> GetAllCommentsWithBlogTitleAsync();
     }
 }

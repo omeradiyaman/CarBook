@@ -1,7 +1,6 @@
 using CarBook.Application.Services;
 using CarBook.WebApi.Hubs;
 using CarBook.WebApi.Services;
-using CarBook.WebUI.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -44,7 +43,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
-app.UseMiddleware<TokenBlacklistMiddleware>(); // Blacklist kontrolü için middleware
 app.UseAuthentication();
 app.UseAuthorization();
 

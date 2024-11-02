@@ -36,7 +36,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.BlogHandlers.Read
                 Description = x.Description,
                 AuthorDescription  = x.Author.Description,
                 AuthorImageUrl = x.Author.ImageUrl,
-                
+                CommentCount = x.Comments.Count,
             }).ToList();
         }
     }
