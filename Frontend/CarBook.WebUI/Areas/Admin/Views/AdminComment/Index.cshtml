@@ -22,12 +22,13 @@
                                 <div class="card">
                                     <h5 class="card-header">Yorum - @count</h5>
                                     <div class="card-body">
-                                        <h4 class="card-title">@item.Name <img src="@item.ImageUrl" width="75" height="75" style="margin-right:10px" /></h4>
+                                        <h4 class="card-title"><img src="@item.ImageUrl" width="75" height="75" style="margin-right:10px" />@item.Name</h4>
+                                        <h2 class="card-title">Yorum Yapan <br />@item.Title</h2>
                                         <p class="card-text">
-                                            @item.Description
+                                            Yorum : @item.Description
                                         </p>
-                                        <a href="#" class="btn btn-primary waves-effect waves-light">Yorumu Kaldır</a>
-                                        <a href="/Admin/AdminAbout/Index" class="btn btn-warning waves-effect waves-light">Geri Dön</a>
+                                        <a href="/Admin/AdminComment/Index" class="btn btn-warning waves-effect waves-light">Geri Dön</a>
+                                        <a href="/Admin/AdminComment/DeleteComment/@item.CommentId" class="btn btn-primary waves-effect waves-light">Yorumu Kaldır</a>
                                     </div>
                                 </div>
                             </div>
