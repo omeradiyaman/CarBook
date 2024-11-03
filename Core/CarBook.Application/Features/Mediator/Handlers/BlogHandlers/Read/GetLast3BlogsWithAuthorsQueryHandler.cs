@@ -33,6 +33,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.BlogHandlers.Read
                 CreatedDate = x.CreatedDate,
                 Title = x.Title,
                 Description = x.Description,
+                CommentCount = x.Comments.Count,
             }).ToList();
         }
     }

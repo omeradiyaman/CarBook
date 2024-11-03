@@ -47,10 +47,10 @@ namespace CarBook.WebApi.Controllers
             var value = await _mediator.Send(new GetAvgRentPriceForDailyQuery());
             return Ok(value);
         }
-        [HttpGet("GetAvgRentPriceForMonthly")]
-        public async Task<IActionResult> GetAvgRentPriceForMonthly()
+        [HttpGet("GetAvgRentPriceForHourly")]
+        public async Task<IActionResult> GetAvgRentPriceForHourly()
         {
-            var value = await _mediator.Send(new GetAvgRentPriceForMonthlyQuery());
+            var value = await _mediator.Send(new GetAvgRentPriceForHourlyQuery());
             return Ok(value);
         }
         [HttpGet("GetAvgRentPriceForWeekly")]

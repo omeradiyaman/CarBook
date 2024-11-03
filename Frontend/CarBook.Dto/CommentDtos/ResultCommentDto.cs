@@ -13,6 +13,7 @@ namespace CarBook.Dto.CommentDtos
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public int BlogId { get; set; }
+        public string Title { get; set; }
         public DateTime CreatedDate { get; set; }
     }
 }

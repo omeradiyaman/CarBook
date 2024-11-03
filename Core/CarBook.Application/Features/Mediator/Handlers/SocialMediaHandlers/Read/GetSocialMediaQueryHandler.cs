@@ -26,7 +26,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.SocialMediaHandlers.Rea
             return values.Select(x => new GetSocialMediaQueryResult
             {
                 Icon = x.Icon,
-                ImageUrl = x.ImageUrl,
+                Url = x.Url,
                 Name = x.Name,
                 SocialMediaId = x.SocialMediaId
             }).ToList();

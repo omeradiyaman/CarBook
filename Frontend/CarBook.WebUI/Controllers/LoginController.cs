@@ -57,18 +57,14 @@ namespace CarBook.WebUI.Controllers
                         await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProps);
                         return RedirectToAction("Index", "AdminCar");
                     }
+                    
                 }
                 else
                 {
-                    var loginErrorViewModel = new LoginErrorViewModel
-                    {
-                        Message = "Kullanıcı Adı veya Şifre Hatalıdır!",
-                        RedirectUrl = Url.Action("Login", "Index")
-                    };
-                    return BadRequest(loginErrorViewModel);
+                    return RedirectToAction("Index", "AccessDenied");
                 }
             }
-            return BadRequest("Lütfen Çerezlere İzin Veriniz!");
+            return BadRequest("Lütfen şifrenizi veya kullanıcı adınızı doğru giriniz!");
         }
     }
 }

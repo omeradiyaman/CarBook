@@ -19,10 +19,13 @@
                                 <div class="text">
                                     <h2 class="mb-0"><a href="#"></a>@item.Model</h2>
                                     <div class="d-flex mb-3">
-                                        <span class="cat">@item.BrandName</span>
-                                        <p class="price ml-auto">₺1200 <span>/Günlük</span></p>
+                                        <span class="cat" style="font-weight: bold; color: #333; margin-right: 10px;">@item.BrandName</span>
+                                        <p class="price ml-auto" style="font-size: 1rem; color: #007bff; font-weight: bold;">₺1200 <span style="font-size: 0.9rem;">/Günlük</span></p>
                                     </div>
-                                    <p class="d-flex mb-0 d-block"><a href="/Reservation/Index/@item.CarId" class="btn btn-primary py-2 mr-1">Hemen Kirala</a> <a href="Car/CarDetail/@item.CarId" class="btn btn-secondary py-2 ml-1">Detaylar</a></p>
+                                    <p class="d-flex mb-0 d-block">
+                                        <a href="/Reservation/Index/@item.CarId" class="btn btn-primary py-2 mr-1">Hemen Kirala</a>
+                                        <a href="Car/CarDetail/@item.CarId" class="btn btn-secondary py-2 ml-1">Detaylar</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>

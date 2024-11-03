@@ -12,72 +12,72 @@ using System.Threading.Tasks;
 
 namespace CarBook.Persistence.Repositories.CarPricingRepositories
 {
-	public class CarPricingRepository : ICarPricingRepository
-	{
-		private readonly CarBookContext _context;
+    public class CarPricingRepository : ICarPricingRepository
+    {
+        private readonly CarBookContext _context;
 
-		public CarPricingRepository(CarBookContext context)
-		{
-			_context = context;
-		}
+        public CarPricingRepository(CarBookContext context)
+        {
+            _context = context;
+        }
 
-		public async Task<List<CarPricing>> GetCarPricingWithCars()
-		{
-			var values = await _context.CarPricings.Include(x => x.Car).ThenInclude(y => y.Brand).Include(x => x.Pricing).Where(z => z.PricingId == 2).ToListAsync();
-			return values;
-		}
+        public async Task<List<CarPricing>> GetCarPricingWithCars()
+        {
+            var values = await _context.CarPricings.Include(x => x.Car).ThenInclude(y => y.Brand).Include(x => x.Pricing).Where(z => z.PricingId == 2).ToListAsync();
+            return values;
+        }
 
-		public async Task<List<ResultCarPricingsWithTimePeriodsDto>> GetCarPricingWithTimePeriod()
-		{
-			var values = await _context.Cars.Include(x => x.CarPricings)
-											.ThenInclude(x => x.Pricing)
-											.Select(x => new
-											{
-												x.CarId,
-												x.Brand.Name,
-												x.Model,
-												x.CoverImageUrl,
-												HourlyAmount = x.CarPricings
+        public async Task<List<ResultCarPricingsWithTimePeriodsDto>> GetCarPricingWithTimePeriod()
+        {
+            var values = await _context.Cars.Include(x => x.CarPricings)
+                                            .ThenInclude(x => x.Pricing)
+                                            .Select(x => new
+                                            {
+                                                x.CarId,
+                                                x.Brand.Name,
+                                                x.Model,
+                                                x.CoverImageUrl,
+                                                HourlyAmount = x.CarPricings
 
-													  .Where(cp => cp.PricingId == 1)
+                                                      .Where(cp => cp.PricingId == 1)
 
-													  .Select(cp => cp.Amount)
+                                                      .Select(cp => cp.Amount)
 
-													  .FirstOrDefault(),
+                                                      .FirstOrDefault(),
 
-												DailyAmount = x.CarPricings
+                                                DailyAmount = x.CarPricings
 
-													  .Where(cp => cp.PricingId == 2)
+                                                      .Where(cp => cp.PricingId == 2)
 
-													  .Select(cp => cp.Amount)
+                                                      .Select(cp => cp.Amount)
 
-													  .FirstOrDefault(),
+                                                      .FirstOrDefault(),
 
-												WeeklyAmount = x.CarPricings
+                                                WeeklyAmount = x.CarPricings
 
-													  .Where(cp => cp.PricingId == 3)
+                                                      .Where(cp => cp.PricingId == 3)
 
-													  .Select(cp => cp.Amount)
+                                                      .Select(cp => cp.Amount)
 
-													  .FirstOrDefault(),
-												MonthlyAmount = x.CarPricings
-													   .Where(cp => cp.PricingId == 6)
-													   .Select(cp => cp.Amount)
-													   .FirstOrDefault(),
-											}).ToListAsync();
+                                                      .FirstOrDefault(),
+                                                MonthlyAmount = x.CarPricings
+                                                       .Where(cp => cp.PricingId == 6)
+                                                       .Select(cp => cp.Amount)
+                                                       .FirstOrDefault(),
+                                            }).ToListAsync();
 
-			var carPricings = values.Select(x => new ResultCarPricingsWithTimePeriodsDto
-			{
-				CarId = x.CarId,
-				BrandAndModel = x.Name + " " + x.Model,
-				CoverImageUrl = x.CoverImageUrl,
-				DailyAmount = x.DailyAmount,
-				WeeklyAmount = x.WeeklyAmount,
-				HourlyAmount = x.HourlyAmount,
-				MonthlyAmount = x.MonthlyAmount,
+            var carPricings = values.Select(x => new ResultCarPricingsWithTimePeriodsDto
+            {
+                CarId = x.CarId,
+                BrandAndModel = x.Name + " " + x.Model,
+                CoverImageUrl = x.CoverImageUrl,
+                DailyAmount = x.DailyAmount,
+                WeeklyAmount = x.WeeklyAmount,
+                HourlyAmount = x.HourlyAmount,
+                MonthlyAmount = x.MonthlyAmount,
 
-			}).ToList();
-			return carPricings;
-		}
-	}
+            }).ToList();
+            return carPricings;
+        }
+    }
 }

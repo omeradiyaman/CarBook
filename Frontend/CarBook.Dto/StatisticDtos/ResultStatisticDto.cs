@@ -15,7 +15,7 @@ namespace CarBook.Dto.StatisticDtos
         public int BrandCount { get; set; }
         public decimal AvgPriceDaily { get; set; }
         public decimal AvgPriceWeekly { get; set; }
-        public decimal AvgPriceMonthly { get; set; }
+        public decimal AvgPriceHourly { get; set; }
         public int AutoTransmissionCarCount { get; set; }
         public string BrandName { get; set; }
         public string BlogTitle { get; set; }

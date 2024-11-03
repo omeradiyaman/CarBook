@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CarBook.WebUI.Areas.Admin.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WebUI.Controllers
 {
-    [Authorize(Roles = "Admin")]
-    public class AdminLayoutController : Controller
+    public class AdminLayoutController : AdminBaseController
     {
         public IActionResult Index()
         {

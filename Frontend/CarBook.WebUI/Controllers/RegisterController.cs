@@ -28,7 +28,7 @@ namespace CarBook.WebUI.Controllers
 			var responseMessage = await client.PostAsync("https://localhost:7263/api/Register", stringContent);
 			if (responseMessage.IsSuccessStatusCode)
 			{
-				return RedirectToAction("Admin", "Login");
+				return RedirectToAction("Index", "Login");
 			}
 			return View();
 		}

@@ -26,7 +26,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.SocialMediaHandlers.Rea
             return new GetSocialMediaByIdQueryResult
             {
                 Icon = value.Icon,
-                ImageUrl = value.ImageUrl,
+                Url = value.Url,
                 Name = value.Name,
                 SocialMediaId = value.SocialMediaId
             };

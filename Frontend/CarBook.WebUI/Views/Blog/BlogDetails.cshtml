@@ -13,11 +13,10 @@
 
                 @await Component.InvokeAsync("_BlogDetailsCategoryComponentPartial")
 
-                @await Component.InvokeAsync("_BlogDetailsRecentBlogsComponentPartial")
+                @await Component.InvokeAsync("_BlogDetailsRecentBlogsComponentPartial", new { id = ViewBag.blogId })
 
-               @*  @await Component.InvokeAsync("_BlogDetailsTagCloudComponentPartial", new { id = ViewBag.blogId }) *@
-
-                @await Component.InvokeAsync("_BlogDetailsParagraphComponentPartial")
+                @*                 @await Component.InvokeAsync("_BlogDetailsTagCloudComponentPartial", new { id = ViewBag.blogId })
+                *@
 
 
             </div>

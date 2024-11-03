@@ -21,11 +21,12 @@
                             {
                                 <div class="alert alert-warning">Herhangi Bir Sosyal Medya Linki Bulunamadı</div>
                             }
-                            <table class="table mb-0">
+                            <table class="table mb-2">
                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>Başlık</th>
+                                        <th>Url</th>
                                         <th>Sil</th>
                                         <th>Güncelle</th>
                                         <th>Aç</th>
@@ -38,9 +39,10 @@
                                         <tr>
                                             <td>@count</td>
                                             <td>@item.Name</td>
+                                            <td>@item.Url</td>
                                             <td><a href="/Admin/AdminSocialMedia/DeleteSocialMedia/@item.SocialMediaId" class="btn btn-outline-danger">Sil</a></td>
                                             <td><a href="/Admin/AdminSocialMedia/UpdateSocialMedia/@item.SocialMediaId" class="btn btn-outline-success">Güncelle</a></td>
-                                            <td><a href="/Admin/AdminSocialMedia/SocialMediaIcons/@item.SocialMediaId" class="btn btn-outline-dark">Aç</a></td>
+                                            <td><a href="@item.Url" class="btn btn-outline-dark">Aç</a></td>
                                         </tr>
                                     }
                                 </tbody>
