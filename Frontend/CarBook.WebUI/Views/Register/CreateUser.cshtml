@@ -33,7 +33,9 @@
                     <div class="d-flex align-items-center min-vh-100">
                         <div class="w-100 d-block bg-white shadow-lg rounded my-5">
                             <div class="row">
-                                <div class="col-lg-5 d-none d-lg-block bg-register rounded-left"></div>
+                                <div class="col-lg-5 d-none d-lg-block rounded-left">
+                                    <img src="~/Admin/vertical/assets/images/your-image.jpg" alt="Login Image" class="img-fluid rounded-start" style="height: 100%; object-fit: cover;">
+                                </div>
                                 <div class="col-lg-7">
                                     <div class="p-5">
                                         <div class="text-center mb-5">
@@ -60,13 +62,8 @@
                                             <div class="form-group">
                                                 <input type="text" asp-for="Username" class="form-control form-control-user" id="exampleUsername" placeholder="Kullanıcı Adınız">
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="password" asp-for="Password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Şifre">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Şifre Tekrar">
-                                                </div>
+                                            <div class="form-group ">
+                                                <input type="password" asp-for="Password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Şifre">
                                             </div>
                                             <button class="btn btn-success btn-block waves-effect waves-light"> Hesabı Oluştur </button>
                                         </form>

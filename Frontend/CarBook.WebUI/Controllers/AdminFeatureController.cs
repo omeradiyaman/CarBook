@@ -10,7 +10,9 @@ using System.Text;
 
 namespace CarBook.WebUI.Controllers
 {
-    public class AdminFeatureController : AdminBaseController
+    [Authorize(Roles = "Admin")]
+
+    public class AdminFeatureController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 

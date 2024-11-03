@@ -25,7 +25,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.SocialMediaHandlers.Wri
             {
                 Name = request.Name,
                 Icon = request.Icon,
-                ImageUrl = request.ImageUrl
+                Url = request.Url
             });
             
         }

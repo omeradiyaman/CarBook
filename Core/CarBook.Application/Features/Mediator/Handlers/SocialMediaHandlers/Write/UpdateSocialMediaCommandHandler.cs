@@ -22,7 +22,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.SocialMediaHandlers.Wri
         public async Task Handle(UpdateSocialMediaCommand request, CancellationToken cancellationToken)
         {
             var value = await _repository.GetByIdAsync(request.SocialMediaId);
-            value.ImageUrl = request.ImageUrl;
+            value.Url = request.Url;
             value.Name = request.Name;
             value.Icon = request.Icon;
             await _repository.UpdateAsync(value);

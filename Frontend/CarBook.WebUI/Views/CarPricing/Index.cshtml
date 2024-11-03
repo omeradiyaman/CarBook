@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/UILayout/Index.cshtml";
+    Random random = new();
 }
 
 
@@ -24,18 +25,17 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
+                                var rating = random.Next(3, 6);
                                 <tr class="">
-
                                     <td class="car-image"><div class="img" style="background-image:url(@item.CoverImageUrl);"></div></td>
                                     <td class="product-name">
                                         <h3>@item.BrandAndModel</h3>
                                         <p class="mb-0 rated">
                                             <span>rated:</span>
-                                            <span class="ion-ios-star"></span>
-                                            <span class="ion-ios-star"></span>
-                                            <span class="ion-ios-star"></span>
-                                            <span class="ion-ios-star"></span>
-                                            <span class="ion-ios-star"></span>
+                                            @for (int i = 0; i < rating; i++)
+                                            {
+                                                <span class="ion-ios-star"></span> <!-- Dolu yıldız -->
+                                            }
                                         </p>
                                     </td>
 

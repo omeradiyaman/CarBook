@@ -27,7 +27,7 @@ namespace CarBook.Application.Features.CQRS.Handlers.CarHandlers.Read
                 BrandName = x.Brand.Name,
                 BrandId = x.BrandId,
                 BigImageUrl = x.BigImageUrl,
-                CarId = x.CarId,    
+                CarId = x.CarId,
                 CoverImageUrl = x.CoverImageUrl,
                 Fuel = x.Fuel,
                 Luggage = x.Luggage,

@@ -91,14 +91,14 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
 
             }
 
-            var responseMessage8 = await client.GetAsync("https://localhost:7263/api/Statistic/GetAvgRentPriceForMonthly");
+            var responseMessage8 = await client.GetAsync("https://localhost:7263/api/Statistic/GetAvgRentPriceForHourly");
             if (responseMessage8.IsSuccessStatusCode)
             {
-                int avgPriceMonthlyRandom = random.Next(0, 101);
+                int avgPricehourlyRandom = random.Next(0, 101);
                 var jsonData8 = await responseMessage8.Content.ReadAsStringAsync();
                 var values8 = JsonConvert.DeserializeObject<ResultStatisticDto>(jsonData8);
-                ViewBag.avgPriceMonthly = values8.AvgPriceMonthly;
-                ViewBag.avgPriceMonthlyRandom = avgPriceMonthlyRandom;
+                ViewBag.avgPriceHourly = values8.AvgPriceHourly;
+                ViewBag.avgPriceHourlyRandom = avgPricehourlyRandom;
             }
 
             var responseMessage9 = await client.GetAsync("https://localhost:7263/api/Statistic/GetCarCountByTransmissionIsAuto");

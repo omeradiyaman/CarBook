@@ -10,21 +10,21 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Handlers.StatisticHandlers.Read
 {
-    public class GetAvgRentPriceForMonthlyQueryHandler : IRequestHandler<GetAvgRentPriceForMonthlyQuery, GetAvgRentPriceForMonthlyQueryResult>
+    public class GetAvgRentPriceForHourlyQueryHandler : IRequestHandler<GetAvgRentPriceForHourlyQuery, GetAvgRentPriceForHourlyQueryResult>
     {
         private readonly IStatisticRepository _repository;
 
-        public GetAvgRentPriceForMonthlyQueryHandler(IStatisticRepository repository)
+        public GetAvgRentPriceForHourlyQueryHandler(IStatisticRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<GetAvgRentPriceForMonthlyQueryResult> Handle(GetAvgRentPriceForMonthlyQuery request, CancellationToken cancellationToken)
+        public async Task<GetAvgRentPriceForHourlyQueryResult> Handle(GetAvgRentPriceForHourlyQuery request, CancellationToken cancellationToken)
         {
-            var value = _repository.GetAvgRentPriceForMonthly();
-            return new GetAvgRentPriceForMonthlyQueryResult
+            var value = _repository.GetAvgRentPriceForHourly();
+            return new GetAvgRentPriceForHourlyQueryResult
             {
-                AvgPriceMonthly = value,
+                AvgPriceHourly = value,
             };
         }
     }

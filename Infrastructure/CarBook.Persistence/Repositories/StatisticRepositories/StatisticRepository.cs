@@ -43,15 +43,15 @@ namespace CarBook.Persistence.Repositories.StatisticRepositories
             return value;
         }
 
-        public decimal GetAvgRentPriceForMonthly()
+        public decimal GetAvgRentPriceForWeekly()
         {
             var value = _context.CarPricings.Where(x => x.PricingId == 6).Average(x => x.Amount);
             return value;
         }
 
-        public decimal GetAvgRentPriceForWeekly()
+        public decimal GetAvgRentPriceForHourly()
         {
-            var value = _context.CarPricings.Where(x => x.PricingId == 3).Average(x => x.Amount);
+            var value = _context.CarPricings.Where(x => x.PricingId == 1).Average(x => x.Amount);
             return value;
         }
 
