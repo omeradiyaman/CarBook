@@ -6,7 +6,7 @@ namespace CarBook.Application.Services
     {
         public static void AddApplicationService(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddMediatR(cfg=>cfg.RegisterServicesFromAssembly(typeof(ServiceRegistration).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceRegistration).Assembly));
         }
     }
 }
